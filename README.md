@@ -1,8 +1,7 @@
-# atomic-work-rag
+# rag-pipeline-project
 
-Production-style RAG for an IT service desk, modeled on how Atomicwork's Atom assistant is
-publicly described: hybrid retrieval, reranking, permission-aware chunks, guardrails,
-deflection-first metrics. Every stage is measured, and CI blocks merges that make quality worse.
+Production-style RAG for an IT service desk assistant: hybrid retrieval, reranking,
+permission-aware chunks, guardrails, deflection-first metrics. Every stage is measured, and CI blocks merges that make quality worse.
 
 Data: about 16k resolved English IT support tickets from Kaggle
 ([tobiasbueck/multilingual-customer-support-tickets](https://www.kaggle.com/datasets/tobiasbueck/multilingual-customer-support-tickets), CC BY 4.0).

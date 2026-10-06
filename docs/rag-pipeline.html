@@ -83,7 +83,7 @@ th{background:var(--panel)}
 <div class="wrap">
 
 <h1>The full RAG pipeline</h1>
-<p class="muted">How the <code>atomic-work-rag</code> project works end to end: what every step does, why it exists, how it is implemented, and where the code lives. Built on ~16k IT support tickets from Kaggle, modeled on how Atomicwork describes its Atom assistant.</p>
+<p class="muted">How the <code>rag-pipeline-project</code> project works end to end: what every step does, why it exists, how it is implemented, and where the code lives. Built on ~16k IT support tickets from Kaggle, modeled on how Atomicwork describes its Atom assistant.</p>
 
 <nav class="toc"><ol>
   <li><a href="#what">What RAG is</a></li>
@@ -468,7 +468,7 @@ score = cosine(A, B)</pre>
 <tr><th>Type</th><th>Examples</th><th>Trade-off</th></tr>
 <tr><td>Small cross-encoder (ours)</td><td>ms-marco-MiniLM-L-6-v2, bge-reranker-base</td><td>free, local, fast enough on CPU</td></tr>
 <tr><td>Large / multilingual cross-encoder</td><td>bge-reranker-v2-m3, mxbai-rerank</td><td>better, wants a GPU; handles our German tickets</td></tr>
-<tr><td>Hosted API</td><td>Cohere Rerank (Atomicwork reports +20% accuracy with it), Voyage, Jina</td><td>top quality, one API call, paid</td></tr>
+<tr><td>Hosted API</td><td>Cohere Rerank, Voyage, Jina</td><td>top quality, one API call, paid</td></tr>
 <tr><td>LLM as reranker</td><td>GPT or Claude asked to rank candidates</td><td>very good, 10 to 100 times slower and costlier</td></tr>
 <tr><td>Late interaction</td><td>ColBERT</td><td>between bi- and cross-encoder; more storage</td></tr>
 </table>
@@ -572,7 +572,7 @@ Endpoints: POST /ask   POST /feedback   GET /healthz   GET /metrics   POST /admi
   <li><b>Stronger guardrails:</b> an ML injection classifier and ML PII detection instead of regex alone.</li>
   <li><b>Richer data:</b> long policy PDFs and how-to articles next to tickets (that is where chunking really matters), multilingual encoder for the German half.</li>
   <li><b>Real evaluation data:</b> golden questions from real users labeled by agents; business metrics such as deflection rate, CSAT and escalation rate; tuned confidence threshold.</li>
-  <li><b>Agentic step:</b> tools for actions (reset a password, open a ticket) with the LLM deciding when to search and when to act, which is where Atomicwork's AI Coworkers are going.</li>
+  <li><b>Agentic step:</b> tools for actions (reset a password, open a ticket) with the LLM deciding when to search and when to act, which is where AI service desk products are heading.</li>
 </ul>
 
 <!-- ============================================================ -->

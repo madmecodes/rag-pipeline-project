@@ -16,7 +16,7 @@ from rag.config import get_settings
 from rag.guard import GuardrailViolation
 from rag.models import dense, reranker, sparse
 
-app = FastAPI(title="atomic-work-rag")
+app = FastAPI(title="rag-pipeline-project")
 _ingest_lock = threading.Lock()
 
 

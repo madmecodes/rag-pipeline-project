@@ -1,5 +1,5 @@
 [project]
-name = "atomic-work-rag"
+name = "rag-pipeline-project"
 version = "0.1.0"
 description = "Production-style RAG over IT support tickets: hybrid search, reranking, ACLs, guardrails, eval"
 requires-python = ">=3.11,<3.13"

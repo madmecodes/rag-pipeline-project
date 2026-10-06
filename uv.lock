@@ -42,7 +42,7 @@ wheels = [
 ]
 
 [[package]]
-name = "atomic-work-rag"
+name = "rag-pipeline-project"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
