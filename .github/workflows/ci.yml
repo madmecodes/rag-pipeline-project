@@ -1,0 +1,30 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv sync
+      - run: uv run pytest -q
+
+  eval-gate:
+    # Rebuilds a small index and fails the build if retrieval quality regresses or ACLs leak.
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      AZURE_FOUNDRY_ENDPOINT: ${{ secrets.AZURE_FOUNDRY_ENDPOINT }}
+      AZURE_FOUNDRY_KEY: ${{ secrets.AZURE_FOUNDRY_KEY }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv sync && uv tool install kaggle
+      - run: make data
+      - run: uv run python -m rag.ingest
+      - run: uv run python -m eval.run_eval --gen-n 20
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: eval-report, path: eval/report.json}

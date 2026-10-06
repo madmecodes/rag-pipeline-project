@@ -1,0 +1,4 @@
+{
+  "retrieval": {"recall@5": 0.52, "mrr": 0.35},
+  "generation": {"faithfulness": 0.9, "grounded_rate": 0.9}
+}
