@@ -83,7 +83,7 @@ th{background:var(--panel)}
 <div class="wrap">
 
 <h1>The full RAG pipeline</h1>
-<p class="muted">How the <code>rag-pipeline-project</code> project works end to end: what every step does, why it exists, how it is implemented, and where the code lives. Built on ~16k IT support tickets from Kaggle, modeled on how Atomicwork describes its Atom assistant.</p>
+<p class="muted">How the <code>rag-pipeline-project</code> project works end to end: what every step does, why it exists, how it is implemented, and where the code lives. Built on ~16k IT support tickets from Kaggle.</p>
 
 <nav class="toc"><ol>
   <li><a href="#what">What RAG is</a></li>
@@ -363,7 +363,7 @@ score = cosine(A, B)</pre>
 <div class="step" id="a7"><h3><span class="tag t-off">A7</span><span class="tag t-enc">ENCODER</span>Dense embedding</h3><dl>
 <dt>What</dt><dd>Each chunk becomes 384 numbers that capture its meaning.</dd>
 <dt>Why</dt><dd>Finds matches by meaning: "connection keeps dropping" matches "VPN disconnects".</dd>
-<dt>How</dt><dd>Bi-encoder <code>bge-small-en-v1.5</code> through fastembed, batches of 256: <code>dense().embed(texts)</code>. Local, so no API cost and no data leaves the machine. Atomicwork uses OpenAI embeddings on Azure instead; same idea, bigger model, paid per token.</dd>
+<dt>How</dt><dd>Bi-encoder <code>bge-small-en-v1.5</code> through fastembed, batches of 256: <code>dense().embed(texts)</code>. Local, so no API cost and no data leaves the machine. A hosted option is OpenAI embeddings on Azure; same idea, bigger model, paid per token.</dd>
 </dl></div>
 
 <div class="step" id="a8"><h3><span class="tag t-off">A8</span><span class="tag t-enc">ENCODER</span>Sparse BM25</h3><dl>
